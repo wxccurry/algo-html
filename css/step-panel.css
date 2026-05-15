@@ -1,0 +1,65 @@
+#step-panel {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.step-type {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.step-desc {
+  font-size: 14px;
+  color: var(--text-primary);
+  line-height: 1.7;
+}
+
+.snapshot-array {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.snapshot-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 4px;
+  background: rgba(30, 30, 54, 0.8);
+  border: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--text-secondary);
+  transition: all 0.2s;
+}
+
+.snapshot-item.highlight {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(255, 107, 53, 0.15);
+}
+
+.snapshot-item.sorted {
+  border-color: var(--success);
+  color: var(--success);
+  background: rgba(45, 212, 191, 0.1);
+}
+
+.snapshot-item.pivot {
+  border-color: var(--accent);
+  color: var(--accent);
+  box-shadow: 0 0 8px rgba(255, 107, 53, 0.3);
+}
+
+.snapshot-item.key {
+  border-color: #F59E0B;
+  color: #F59E0B;
+}
