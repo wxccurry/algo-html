@@ -53,7 +53,7 @@ function selectionSortSteps(inputArr) {
 
   for (let i = 0; i < n - 1; i++) {
     let minIdx = i;
-    steps.push({ type: 'scan-start', array: clone(arr), current: i, description: `从索引 ${i} 开始扫描未排序区间` });
+    steps.push({ type: 'scan-start', array: clone(arr), current: i, sortedRange: [0, i], description: `从索引 ${i} 开始扫描未排序区间` });
     for (let j = i + 1; j < n; j++) {
       steps.push({
         type: 'scan',
@@ -176,7 +176,7 @@ function quickSortSteps(inputArr) {
             pivotIdx: high,
             range: [low, high],
             depth,
-            description: `${arr[j]} < ${pivot}，交换索引 ${i} 和 ${j}`,
+            description: `${arr[i]} < ${pivot}，交换索引 ${i} 和 ${j}`,
           });
         }
       }
