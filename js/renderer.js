@@ -16,9 +16,12 @@ const Renderer = {
 
   init() {
     this.canvas = document.getElementById('visualizer-canvas');
+    if (!this.canvas) return;
+    this._monoFont = getComputedStyle(document.documentElement).getPropertyValue('--font-mono').trim() || 'monospace';
     this.ctx = this.canvas.getContext('2d');
     this.resize();
-    window.addEventListener('resize', () => this.resize());
+    this._resizeHandler = () => this.resize();
+    window.addEventListener('resize', this._resizeHandler);
   },
 
   resize() {
@@ -49,6 +52,7 @@ const Renderer = {
   _drawBars(step, w, h, algoId) {
     const { ctx } = this;
     const arr = step.array;
+    if (arr.length === 0) return;
     const n = arr.length;
     const maxVal = Math.max(...arr, 1);
     const barWidth = Math.max(6, (w - (n - 1) * this.barGap) / n);
@@ -109,7 +113,7 @@ const Renderer = {
       // Value label
       if (barWidth > 16) {
         ctx.fillStyle = 'rgba(235, 233, 245, 0.5)';
-        ctx.font = `${Math.min(11, barWidth * 0.7)}px ${getComputedStyle(document.documentElement).getPropertyValue('--font-mono')}`;
+        ctx.font = `${Math.min(11, barWidth * 0.7)}px ${this._monoFont}`;
         ctx.textAlign = 'center';
         ctx.fillText(val, x + barWidth / 2, y - 6);
       }
@@ -145,7 +149,7 @@ const Renderer = {
       ctx.stroke();
 
       ctx.fillStyle = '#EBE9F5';
-      ctx.font = `500 ${cardW * 0.4}px ${getComputedStyle(document.documentElement).getPropertyValue('--font-mono')}`;
+      ctx.font = `500 ${cardW * 0.4}px ${this._monoFont}`;
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
       ctx.fillText(val, x + cardW / 2, y + cardW / 2);
