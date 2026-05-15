@@ -1,0 +1,31 @@
+#code-panel {
+  padding: 24px;
+}
+
+#code-block {
+  display: block;
+  line-height: 1.8;
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  counter-reset: line;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+#code-block .code-line {
+  display: block;
+  padding: 0 12px;
+  border-left: 2px solid transparent;
+  transition: background 0.15s, border-color 0.15s;
+  border-radius: 0 3px 3px 0;
+}
+
+#code-block .code-line.highlighted {
+  background: rgba(255, 107, 53, 0.1);
+  border-left-color: var(--accent);
+}
+
+.code-line .kw { color: #FF6B35; }
+.code-line .fn { color: #2DD4BF; }
+.code-line .num { color: #F59E0B; }
