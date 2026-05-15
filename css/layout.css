@@ -67,3 +67,16 @@ body {
   border-top: 1px solid var(--border);
   background: var(--bg-card);
 }
+
+#content-area > * {
+  transition: opacity 0.3s ease;
+}
+
+#content-area > .hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#content-area > :not(.hidden) {
+  opacity: 1;
+}

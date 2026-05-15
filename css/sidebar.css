@@ -77,3 +77,22 @@
   color: var(--text-primary);
   background: var(--bg-hover);
 }
+
+#algo-list li a::before {
+  content: '→';
+  position: absolute;
+  left: 8px;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: all 0.2s;
+  color: var(--accent);
+}
+
+#algo-list li a {
+  position: relative;
+}
+
+#algo-list li a:hover::before {
+  opacity: 1;
+  transform: translateX(0);
+}
