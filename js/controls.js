@@ -69,7 +69,7 @@ const Controls = {
   pause() {
     this.state = 'paused';
     this.btnPlay.textContent = 'Play';
-    this.btnPlay.classList.add('primary');
+    this.btnPlay.classList.remove('primary');
     if (this.animFrame) cancelAnimationFrame(this.animFrame);
     document.getElementById('visualizer-container').classList.remove('playing');
   },
@@ -77,8 +77,9 @@ const Controls = {
   stop() {
     this.state = 'stopped';
     this.btnPlay.textContent = 'Play';
-    this.btnPlay.classList.add('primary');
+    this.btnPlay.classList.remove('primary');
     this.currentStep = 0;
+    if (this.onStepChange && this.steps.length > 0) this.onStepChange(this.steps[0], 0);
     if (this.animFrame) cancelAnimationFrame(this.animFrame);
     document.getElementById('visualizer-container').classList.remove('playing');
   },
@@ -127,7 +128,7 @@ const Controls = {
     this.btnStepForward.disabled = this.currentStep >= this.steps.length - 1;
   },
 
-  disableDuringAnimation(enabled) {
-    // Called by app to disable algo switching during animation
+  get isPlaying() {
+    return this.state === 'playing';
   },
 };
