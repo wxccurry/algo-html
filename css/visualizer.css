@@ -1,0 +1,23 @@
+#visualizer-canvas {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: var(--radius);
+}
+
+#step-description {
+  color: var(--text-secondary);
+  font-size: 14px;
+  margin-top: 16px;
+  min-height: 24px;
+  text-align: center;
+  transition: color 0.3s;
+}
+
+@keyframes breathe {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.15); }
+  50% { box-shadow: 0 0 0 6px rgba(255, 107, 53, 0); }
+}
+
+#visualizer-container.playing #visualizer-canvas {
+  animation: breathe 2s ease-in-out infinite;
+}
