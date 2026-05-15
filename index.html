@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algorithm Visualizer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/sidebar.css">
+  <link rel="stylesheet" href="css/controls.css">
+  <link rel="stylesheet" href="css/visualizer.css">
+  <link rel="stylesheet" href="css/code-panel.css">
+  <link rel="stylesheet" href="css/step-panel.css">
+</head>
+<body>
+  <aside id="sidebar">
+    <div class="sidebar-header">
+      <h1 class="logo">Algo<span class="accent">Viz</span></h1>
+    </div>
+    <nav id="algo-nav">
+      <ul id="algo-list"></ul>
+    </nav>
+    <div class="sidebar-footer">
+      <button id="settings-btn" class="settings-trigger">Settings</button>
+    </div>
+  </aside>
+  <main id="main-content">
+    <div id="top-bar">
+      <h2 id="algo-title"></h2>
+      <div id="mode-toggle" class="mode-toggle">
+        <button data-mode="visualize" class="mode-btn active">Visualize</button>
+        <button data-mode="step" class="mode-btn">Step Through</button>
+        <button data-mode="code" class="mode-btn">Code + Visual</button>
+      </div>
+    </div>
+    <div id="content-area">
+      <div id="visualizer-container">
+        <canvas id="visualizer-canvas"></canvas>
+        <p id="step-description"></p>
+      </div>
+      <div id="code-panel" class="hidden">
+        <pre><code id="code-block"></code></pre>
+      </div>
+      <div id="step-panel" class="hidden">
+        <div id="step-info"></div>
+        <div id="data-snapshot"></div>
+      </div>
+    </div>
+    <div id="control-bar">
+      <button id="btn-reset" class="ctrl-btn" title="Reset">Reset</button>
+      <button id="btn-step-back" class="ctrl-btn" title="Step Back">Prev</button>
+      <button id="btn-play" class="ctrl-btn primary" title="Play/Pause">Play</button>
+      <button id="btn-step-forward" class="ctrl-btn" title="Step Forward">Next</button>
+      <div class="speed-control">
+        <label for="speed-slider">Speed</label>
+        <input type="range" id="speed-slider" min="0.5" max="3" step="0.5" value="1">
+        <span id="speed-label">1x</span>
+      </div>
+      <div class="size-control">
+        <label for="size-slider">Size</label>
+        <input type="range" id="size-slider" min="5" max="50" value="20">
+        <span id="size-label">20</span>
+      </div>
+    </div>
+  </main>
+  <script src="js/algorithms.js"></script>
+  <script src="js/sidebar.js"></script>
+  <script src="js/renderer.js"></script>
+  <script src="js/controls.js"></script>
+  <script src="js/code-display.js"></script>
+  <script src="js/step-display.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

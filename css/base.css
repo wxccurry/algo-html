@@ -1,0 +1,73 @@
+:root {
+  --bg-primary: #0A0A0F;
+  --bg-card: #12121C;
+  --bg-hover: #1A1A2E;
+  --accent: #FF6B35;
+  --success: #2DD4BF;
+  --text-primary: #EBE9F5;
+  --text-secondary: #6B6880;
+  --border: #222235;
+
+  --font-display: "DM Serif Display", Georgia, serif;
+  --font-body: "DM Sans", -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+
+  --sidebar-width: 240px;
+  --control-height: 64px;
+  --topbar-height: 56px;
+  --radius: 6px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  overflow: hidden;
+}
+
+h1, h2, h3 { font-family: var(--font-display); }
+
+code, pre {
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+ul { list-style: none; }
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--border);
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+}
