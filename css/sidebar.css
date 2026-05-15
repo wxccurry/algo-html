@@ -21,8 +21,6 @@
   padding: 8px 0;
 }
 
-#algo-list li { }
-
 #algo-list li a {
   display: flex;
   align-items: center;

@@ -8,16 +8,26 @@ const ALGORITHMS = [
 
 function initSidebar(onSelect) {
   const list = document.getElementById('algo-list');
+  if (!list) return;
   const items = ALGORITHMS.map((algo) => {
     const li = document.createElement('li');
     const a = document.createElement('a');
     a.href = '#';
     a.dataset.algoId = algo.id;
-    a.innerHTML = `
-      <span class="algo-icon">${algo.icon}</span>
-      <span>${algo.nameCN}</span>
-      <span class="algo-difficulty">${algo.difficulty === 'advanced' ? '进阶' : '入门'}</span>
-    `;
+    const iconSpan = document.createElement('span');
+    iconSpan.className = 'algo-icon';
+    iconSpan.textContent = algo.icon;
+
+    const nameSpan = document.createElement('span');
+    nameSpan.textContent = algo.nameCN;
+
+    const diffSpan = document.createElement('span');
+    diffSpan.className = 'algo-difficulty';
+    diffSpan.textContent = algo.difficulty === 'advanced' ? '进阶' : '入门';
+
+    a.appendChild(iconSpan);
+    a.appendChild(nameSpan);
+    a.appendChild(diffSpan);
     a.addEventListener('click', (e) => {
       e.preventDefault();
       document.querySelectorAll('#algo-list a').forEach(el => el.classList.remove('active'));
@@ -28,5 +38,4 @@ function initSidebar(onSelect) {
     return li;
   });
   items.forEach(li => list.appendChild(li));
-  return ALGORITHMS;
 }
