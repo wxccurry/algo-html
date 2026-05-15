@@ -1,0 +1,88 @@
+#control-bar { gap: 16px; }
+
+.ctrl-btn {
+  padding: 8px 16px;
+  border-radius: var(--radius);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: transparent;
+  border: 1px solid var(--border);
+  transition: all 0.2s;
+}
+
+.ctrl-btn:hover {
+  color: var(--text-primary);
+  background: var(--bg-hover);
+  border-color: var(--text-secondary);
+}
+
+.ctrl-btn.primary {
+  color: var(--bg-primary);
+  background: var(--accent);
+  border-color: var(--accent);
+  font-weight: 600;
+}
+
+.ctrl-btn.primary:hover {
+  filter: brightness(1.1);
+  transform: scale(1.03);
+}
+
+.ctrl-btn:disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.speed-control,
+.size-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 8px;
+}
+
+.speed-control label,
+.size-control label {
+  color: var(--text-secondary);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.speed-control input,
+.size-control input {
+  width: 80px;
+}
+
+.speed-control span,
+.size-control span {
+  color: var(--text-primary);
+  font-size: 13px;
+  font-family: var(--font-mono);
+  min-width: 30px;
+}
+
+.mode-toggle {
+  display: flex;
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.mode-btn {
+  padding: 6px 16px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  transition: all 0.2s;
+}
+
+.mode-btn:hover {
+  color: var(--text-primary);
+}
+
+.mode-btn.active {
+  color: var(--accent);
+  background: rgba(255, 107, 53, 0.1);
+}
